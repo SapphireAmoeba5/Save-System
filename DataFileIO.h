@@ -19,6 +19,7 @@ namespace DataFileIO
 
 	/*
 	 Stores contiguous blocks of data onto the disk
+	 Size parameter takes the number of bytes to be saved, NOT the number of elements
 	*/
 	bool Save(const char* filepath, const void* data, size_t size, bool append = false);
 }
