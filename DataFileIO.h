@@ -66,13 +66,8 @@ T* DataFileIO::Load(const char* filepath, int* size/*= nullptr*/)
 
 bool DataFileIO::Save(const char* filepath, const void* data, size_t size, bool append/*= false*/)
 {
-	int writeMode = std::ios_base::trunc;
-	switch (append) // Determines if the user wants to either append, or truncate the file
-	{
-	case true: writeMode = std::ios_base::app; break;
-	case false: writeMode = std::ios_base::trunc; break;
-	}
-
+	int writeMode = append ? std::ios_base::app : std::ios_base::trunc; // Determines if the user wants to either append, or truncate the file
+	
 	std::ofstream outfile(filepath, std::ios_base::binary | writeMode);
 
 	if (outfile.bad())
