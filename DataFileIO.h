@@ -15,7 +15,7 @@ namespace DataFileIO
 	 Takes a reference to an int that stores the size of the buffer
 	*/
 	template<typename T>
-	T* Load(const char* filepath, int* size = nullptr);
+	T* Load(const char* filepath, unsigned int* size = nullptr);
 
 	/*
 	 Stores contiguous blocks of data onto the disk
@@ -33,7 +33,7 @@ namespace DataFileIO
 #define DATA_FILE_IO_PREFIX "DATA_FILE_IO ERROR: "
 
 template<typename T>
-T* DataFileIO::Load(const char* filepath, int* size/*= nullptr*/)
+T* DataFileIO::Load(const char* filepath, unsigned int* size/*= nullptr*/)
 {
 	std::ifstream infile(filepath, std::ios_base::binary);
 
